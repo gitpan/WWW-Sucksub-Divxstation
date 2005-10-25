@@ -1,5 +1,8 @@
 Revision history for WWW-Sucksub-Divxstation
 
-0.01    Date/time
+0.01    24/10/2005 18:00:00
         First version, released on an unsuspecting world.
 
+0.02	24/10/2005	20:13:32
+		 - Add /eg dir for example
+		 - correct. Makefile.PL

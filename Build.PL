@@ -7,12 +7,13 @@ my $builder = Module::Build->new(
     license             => 'perl',
     dist_author         => 'Timothée Foucart <timothee.foucart@apinc.org>',
     dist_version_from   => 'lib/WWW/Sucksub/Divxstation.pm',
+    dist_version	=> '0.02',
     requires => {
-        'Test::More' => 0,
+        'Test::More' => '>=0.5',
         'WWW::Mechanize' => '>= 1.02',
         'DB_File'=> '>= 1.8',
         'HTTP::Cookies' => '>= 1.3',
-	  'Carp' => '>= 1.0',
+	'Carp' => '>= 1.0',
 	        
     },
     add_to_cleanup      => [ 'WWW-Sucksub-Divxstation-*' ],

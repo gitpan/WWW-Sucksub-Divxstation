@@ -1,4 +1,4 @@
-package Sucksub::Divxstation;
+package WWW::Sucksub::Divxstation;
 
 
 =head1 NAME
@@ -7,11 +7,11 @@ WWW::Sucksub::Divxstation - automated access to divxstation.com
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 SYNOPSIS
 
@@ -22,14 +22,13 @@ of any search in a dbm file. You can retrieve it through an html file.
 
 
 
-    use Sucksub::Divxstation;
-    my $foo = Sucksub::Divxstation->new(
-    						dbfile=> '/where/your/DBM/file is.db',
-						html =>'/where/your/html/repport/is.html',
-						motif=> 'the word(s) you search',
-						debug=> 1, 
-						logout => '/where/your/debug/info/are/written.log',	  					
-    					);
+    use WWW::Sucksub::Divxstation;
+    my $foo = WWW::Sucksub::Divxstation->new(
+    					dbfile=> '/where/your/DBM/file is.db',
+					html =>'/where/your/html/repport/is.html',
+					motif=> 'the word(s) you search',
+					debug=> 1, 
+					logout => '/where/your/debug/info/are/written.log',	  						);
     $foo->update(); 	# collect all link corresponding to the $foo->motif()
     $foo->motif('x'); 	# modify the search criteria 
     $foo->search();	# launch a search on the local database 
@@ -221,9 +220,9 @@ sub new{
 	 	bless($self,$classe);
 	 	$self->_init(@_);
 	 	logout($self->{logout});
-	 	motif($self->{motif});
-	 	html($self->{html});
-	 	dbfile($self->{dbfile});
+	 	#motif($self->{motif});
+	 	#html($self->{html});
+	 	#dbfile($self->{dbfile});
 	 	return $self;
 };
  sub _init{
@@ -236,8 +235,8 @@ sub new{
 	$self->{cookies_file} = "$ENV{HOME}"."/.cookies_sksb";
 	$self->{useragent} = "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.5) Gecko/20031007";
 	$self->{motif}  = undef;
-	$self->{debug}  = undef;
-	$self->{logout} = undef; 
+	$self->{debug}  = 0;
+	$self->{logout} = \*STDOUT; 
 	$self->{html} = "$ENV{HOME}"."/sksb_divxstation_report.html";
 	$self->{dbfile} = "$ENV{HOME}"."/sksb_divxstation_db.db";
 	$self->{okdbfile} = 0;
@@ -292,7 +291,7 @@ sub motif {
 	}	
 sub logout { 
 	if (@_){$logout=shift; }
-      if ($logout)
+      	if ($logout)
 		{ open(FH , ">>", $logout) or croak " can not open $logout : $!\n"; 
 		   $fh=(\*FH);} 
 	else 
@@ -447,8 +446,6 @@ sub parse_divxstation{
 			$jnd2++ ; # next sub in every cases
 			};							
 		}; # end loop
-
-print $fh    "[DEBUG] ending scan page $page on $site  at : ".localtime()."\n" if ($debug);
 $nbres=$jnd; 
 save_dbm();
 return $nbres;	
@@ -464,7 +461,6 @@ untie(%xstsav);
 return;	
 };
 sub search_dbm{
-print "dbfile is ".$dbfile ." \n";
 use DB_File;
 my %hashread;
 my $nb_local_res;
@@ -499,7 +495,7 @@ my $nb_local_res;
 return;
 };
 sub END{
-	close $fh;
+	close FH;
 	close HTMLFILE;
 };		 
 		 
