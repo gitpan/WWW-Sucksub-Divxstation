@@ -7,11 +7,11 @@ WWW::Sucksub::Divxstation - automated access to divxstation.com
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =head1 SYNOPSIS
 
@@ -59,7 +59,7 @@ All attributes can be modified by corresponding methods:
 	$foo->WWW::Sucksub::Divxstation->new()
 	$foo->useragent() # get the useragent attribute value
 	$foo->useragent('tructruc') # set the useragent attribute value to 'tructruc'
-	
+
 
 =head4 cookies_files()
 
@@ -166,8 +166,17 @@ return a hash of every couple ( title, http link of subtitle file ) the search o
 
 =head1 SEE ALSO
 
-L<<WWW::Mechanize>>
-L<<DB_FILE>>	
+=over 4
+
+=item * L<WWW::Mechanize>
+
+=item * L<DB_FILE>	
+
+=item * L<HTTP::Cookies>
+
+=item * L<WWW::Sucksub::Divxstation>
+
+=back
 
 =head1 AUTHOR
 
@@ -220,9 +229,6 @@ sub new{
 	 	bless($self,$classe);
 	 	$self->_init(@_);
 	 	logout($self->{logout});
-	 	#motif($self->{motif});
-	 	#html($self->{html});
-	 	#dbfile($self->{dbfile});
 	 	return $self;
 };
  sub _init{

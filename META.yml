@@ -1,6 +1,6 @@
 ---
 name: WWW-Sucksub-Divxstation
-version: 0.02
+version: 0.03
 author: Timothée Foucart <timothee.foucart@apinc.org>
 abstract: automated access to divxstation.com
 license: perl
@@ -13,5 +13,5 @@ requires:
 provides:
   WWW::Sucksub::Divxstation:
     file: lib/WWW/Sucksub/Divxstation.pm
-    version: 0.02
+    version: 0.03
 generated_by: Module::Build version 0.25

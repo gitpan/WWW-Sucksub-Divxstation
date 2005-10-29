@@ -7,7 +7,7 @@ my $builder = Module::Build->new(
     license             => 'perl',
     dist_author         => 'Timothée Foucart <timothee.foucart@apinc.org>',
     dist_version_from   => 'lib/WWW/Sucksub/Divxstation.pm',
-    dist_version	=> '0.02',
+    #dist_version	=> '0.03',
     requires => {
         'Test::More' => '>=0.5',
         'WWW::Mechanize' => '>= 1.02',

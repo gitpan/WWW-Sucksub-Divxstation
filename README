@@ -2,7 +2,8 @@ WWW-Sucksub-Divxstation
 
 WWW::Sucksub::Divxstation allows an automated access to web database divxstation.com
 Any search are collected in a dbm file where subtitles http address and titles are stored.
-
+each distant search continue to collect results in a local database file.
+You can use this small db to search and produce simple html report
 
 INSTALLATION
 
