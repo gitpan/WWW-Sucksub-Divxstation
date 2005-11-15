@@ -7,11 +7,11 @@ WWW::Sucksub::Divxstation - automated access to divxstation.com
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 =head1 SYNOPSIS
 
@@ -127,7 +127,7 @@ The file will should be readable/writable.
 Define simple html output where to write search report.
 you must provide au full path to the html file if you want to get an html output.
 
- 	html('/where/the html/repport/is/written.html')
+ 	html('/where/the/html/repport/is/written.html')
 
 If $foo->html() is defined. you can get the value of this attribute like this :
 
@@ -174,7 +174,11 @@ return a hash of every couple ( title, http link of subtitle file ) the search o
 
 =item * L<HTTP::Cookies>
 
-=item * L<WWW::Sucksub::Divxstation>
+=item * L<WWW::Sucksub::Attila>
+
+=item * L<WWW::Sucksub::Vostfree>
+
+=item * L<Alias>
 
 =back
 

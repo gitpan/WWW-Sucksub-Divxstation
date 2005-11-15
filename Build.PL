@@ -13,7 +13,8 @@ my $builder = Module::Build->new(
         'WWW::Mechanize' => '>= 1.02',
         'DB_File'=> '>= 1.8',
         'HTTP::Cookies' => '>= 1.3',
-	'Carp' => '>= 1.0',
+	  'Carp' => '>= 1.0',
+	  'Alias' => '>=2.3',
 	        
     },
     add_to_cleanup      => [ 'WWW-Sucksub-Divxstation-*' ],

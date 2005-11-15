@@ -26,7 +26,6 @@ my $test= WWW::Sucksub::Divxstation->new(
 
 
 $test->update();
-#$test->motif('i');
 $test->cookies_file('/home/timo/cookis.txt');
 $test->search();
 
